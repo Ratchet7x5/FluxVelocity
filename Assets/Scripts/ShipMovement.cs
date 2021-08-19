@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private float speedGainPerSecond = 0.2f;
