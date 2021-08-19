@@ -17,7 +17,7 @@ public class Ship : MonoBehaviour
     float controlPitchFactor = -20f;
     float controlRowFactor = -20f;
 
-    float controlSpeeed = 10f;
+    float controlSpeeed = 1f;
     float xRange = 5f;
     float yRange = 3f;
 
@@ -48,6 +48,7 @@ public class Ship : MonoBehaviour
 
         // ProcessTranslation();
         // ProcessRotation();
+        newMovement();
     }
 
     private void ProcessRotation() {
@@ -77,5 +78,15 @@ public class Ship : MonoBehaviour
         float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+
+    private void newMovement()
+    {
+        xThrow = steerValue;
+        float xOffset = xThrow * controlSpeeed * Time.deltaTime;
+
+        float rawXPos = transform.localPosition.z + xOffset;
+
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, rawXPos);
     }
 }
