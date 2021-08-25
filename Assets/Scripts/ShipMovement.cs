@@ -1,27 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float speedGainPerSecond = 0.2f;
+    [Header("Ship Movement")]
+    [Tooltip("Ship current Speed")][SerializeField] private float speed = 10f;
+    [Tooltip("Speed increasing per second")][SerializeField] private float speedGainPerSecond = 0.2f;
 
-    [SerializeField] private float turnSpeed = 100f;
-    private int steerValue = 2;
-
-    // New Movement Variable
-    float positionPitchFactor = -5f;
-    float positionYawFactor = 5f;
-
-    float controlPitchFactor = -20f;
-    float controlRowFactor = -20f;
-
-    float controlSpeeed = 10f;
-    float xRange = 5f;
-    float yRange = 3f;
-
-    float xThrow, yThrow;
+    [Tooltip("Ship turning speed")][SerializeField] private float turnSpeed = 100f;
+    [Tooltip("Steer value")][SerializeField] private int steerValue = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -32,50 +21,53 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Read key
+        /*
+        Read player's key script,
+        */
         if (Input.GetKey("a")) 
         {
+            // Move Left
             transform.Rotate(0f, 0f, -steerValue * turnSpeed * Time.deltaTime);
         }
         else if (Input.GetKey("d")) 
         {
+            // Move Right
             transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
         }
 
-        // Move Ship
+        /*
+        Ship moving forward script
+        */
         speed += speedGainPerSecond * Time.deltaTime;
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        // ProcessTranslation();
-        // ProcessRotation();
+        ShipFallOfTrack();
     }
 
-    private void ProcessRotation() {
-        float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
-        float pitchDueToControlThrow = yThrow * controlPitchFactor;
-        float pitch = pitchDueToControlThrow + pitchDueToPosition;
+    /*
+    If player ship fall of the track (current Y position < -10),
+    Reload the current scene
 
-        float yaw = transform.localPosition.x + positionYawFactor;
+    Note : Need to destroy the MusicPlayer object when load MenuScene,
+           If not, the code will Create a ANOTHER NEW MusicPlayer object.
+    */
+    private void ShipFallOfTrack()
+    {
+        // Get ship's current Y position
+        float currentYPosition = transform.position.y;
 
-        float roll = xThrow * controlRowFactor;
+        // If fall off track
+        if (currentYPosition < -10)
+        {
+            // Find if the MusicPlayer existed
+            GameObject music = GameObject.Find("MusicPlayer");
 
-        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
-    }
+            // If the MusicPlayer existed, Destroy
+            if(music)
+                Destroy(music);
 
-    private void ProcessTranslation() {
-        // Test new Movement
-        xThrow = Input.GetAxis("Horizontal");
-        yThrow = Input.GetAxis("Vertical");
-
-        float xOffset = xThrow * controlSpeeed * Time.deltaTime;
-        float yOffset = yThrow * controlSpeeed * Time.deltaTime;
-
-        float rawXPos = transform.localPosition.x * xOffset;
-        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
-
-        float rawYPos = transform.localPosition.y * yOffset;
-        float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
-
-        transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+            // Load MainMenuScene
+            SceneManager.LoadScene(0);
+        }
     }
 }
