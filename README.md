@@ -6,17 +6,14 @@ Github repository for the project Flux Velocity.
 
 Rule 0  
 
-The project is written in C++ and will continue to be written in it until further notice.  
-It should be noted that the project is allowed to use extra scripting languages like  
-Unreal Engine blueprints or lua for small and experimental purposes, however the final  
-product should endeavour to convert most of the code base into C++.  
+The project is written in C# and will continue to be written in it until further notice.
 
 # Section 1 | Coding Style
 Rule 1.1
 
 This project will follow Unreal Engine's own Coding Standard to keep consistent between  
 API's and Engine features.  
-For a detailed run down on the Coding Standard see the [official documentation](https://docs.unrealengine.com/en-US/Programming/Development/CodingStandard/index.html)
+For a detailed run down on the Coding Standard see the [official documentation](https://docs.unity3d.com/)
 It should be noted that the rules on Class Organization and Copyright Notice should be  
 ignored as this project will be using it's own rules
 
@@ -43,8 +40,6 @@ variable names.
 For example `FSkin` would be a typename whereas Skin is a variable instance of FSkin  
 Some prefix letters are reserved by Unreal Engine for specific types.  
 	* T - Template classes  
-	* U - Object derived from `UObject`  
-	* A - Object derived from `AActor`  
 	* I - Classes that are abstract interfaces  
 	* E - Enumerations and Enumeration classes  
 	* b - Boolean Values  
@@ -84,33 +79,12 @@ The name should make clear what the function will return.
 This is particularly important for boolean functions.  
 For example, `bool IsTeaFresh(FTea Tea)` is clearer than `bool CheckTea(FTea Tea)`  
 
-Rule 1.5 | Portable C++ Code
-
-Use the follow types instead of the typical types to aid with portability of the code base by being explicit with the with of the type.  
-* bool		- booleans (NEVER assume the size f bool)  
-* TCHAR		- characters (NEVER assume the size of T  CHAR)
-* uint8		- unsigned bytes (1 byte)  
-* int8		- signed bytes (1 byte)  
-* uint16	- unsigned "shorts" (2 bytes)  
-* int16		- signed "shorts" (2 bytes)  
-* uint32	- unsigned ints (4 bytes)  
-* int32		- signed ints (4 bytes)  
-* uint64	- unsigned "quad words" (8 bytes)  
-* int64		- signed "quad words" (8 bytes)  
-* float		- single precision floating points (4 bytes)  
-* double	- single precision floating points (8 byte)  
-* PTRINT	- integer that may hold a pointer (NEVER assume the size of PTRINT)  
-Note: 
-Use of C++'s int and unsigned int types (whose size may vary accross platforms) is  
-acceptable in code where integer width is unimportant. Explicitly-sized types must  
-still be used in seralized or replicated formats.
-
-Rule 1.6 | Use of Standard Libaries
+Rule 1.5 | Use of Standard Libaries
 
 Unity allows developers to utilize .NET library assemblies when needed. Available libraries can be found here: 
 https://docs.unity3d.com/Manual/dotnetProfileAssemblies.html
 
-Rule 1.7 | Comments
+Rule 1.6 | Comments
 
 Comments are communication and communication is vital.  
 * You should aim to write self documenting code. - Rather than write confusing code  
@@ -126,6 +100,7 @@ aim to be be self-explanatory in its execution.
 `TODO(<insert_username>) stuff to do`
 Note that more important fixes should be co-ordinates with project-management software and 
 other maintainers
+
 Rule 1.8 | Const Correctess
 
 Const is documentation as much as it is a compiler directive, so all code should strive  
@@ -143,15 +118,10 @@ Note: Move sematics that involve the paramater in an exception to this rule
 * Never const a return type - Doing so inhibits compiler move semantics and will cause  
 compiler warnings for built-in types  
 Note: This only applies to the type itself and not a dereferenced object  
-Note:  
-Place the const keyword after the type rather than before the type it points to.  
+Note: Place the const keyword after the type rather than before the type it points to.  
 
 Rule 1.9 | Example Formatting
-UnrealEngine4 uses a system based on JavaDoc to automatically extract comments from  
-source code and build documentation, this means there are some specific comment formatting  
-rules that need to be followed to facilitate this process.  
-  
-Two different paramater comment styles are supported.  
+It's recommended to follow the type of code standards demonstrated below. 
 The `@param` style is the traditional multi-line style, but for simple functions  
 it can be clearer to integrate the paramater and return value documentation into  
 a single, descriptive comment for the function.  
@@ -186,111 +156,7 @@ same way an output variable is documented. Avoid redundancy and do not write the
 * Extra Information -`@warning` `@note` `@see` `@deprecated` tags can optionally be used to document additional relaant information. Each should be declared on their own lines
 TODO(mallchad) move part of this section back into Section 1.7
 
-Rule 1.10 | Modern C++ Language Syntax
-Unreal Engine is extremely portable so it is important to keep compiler compability accross platforms.
-Unreal Engine uses C++14 language features extensively.
-Unless specified below compiler specific language features should be avoided to keep
-cross-compatibility.
-
-`static_assert` Keyword
-This keyword is valid for use where you need a compile-time assertion.
-
-`override` and `final` Keywords
-These keywords are valid for use, and their use is strongly encouraged.
-
-`nullptr` Keyword
-This keyword should always used instead of the C-style NULL macro.
-The only exception is in C++/C builds (such as for Xbox One).
-
-`auto` Keyword
-Generally speaking the `auto` should be avoided.
-It is important to be explicit about the type you're initilizing to keep intentions
-clear and keep the code readable for fresh eyes.
-The same rules apply to the `var` keyword in C# code.
-Some exceptions to the rule
-* When you bind a lambda to a variable, lammbda types are not easilly  expressible in code.
-* For iterator variablesonly when the iterator's type is verbose and impairs readability.
-* In template code, where the type of an expression cannot be easilly discerned.
-When using auto remember to correctly use `const`, `&`, or `*`.
-
-Ranged-Based For Loop
-This type of for-loop is preferred to keep the code easier to understand and more maintainable.
-When you migrate code that uses old TMap iterators be aware that the old `Key()` and `Value()`
-functions, which were methods of the iterator type are now simply `Key` and `Value` fields
-of the underlying key-value `TPair`.
-
-Lambdas and Anonymous Functions
-Lambdas can be used freely.
-The best lambdas should be no more than a couple statements in length, particularly when used 
-as a part of a larger expression or statement,
-for example as a predicate in a generic algorithm.
-Be aware that stateful lambdas can't be assigned to function pointers, which are used 
-extensively in Unreal Engine.
-Non-trivial lambdas should be documented in the same manner as regular functions.
-Don't be afraid to split them over a few more lines in order to include comment.
-Explicit captures should be used rather than automatic capture `[&amp;]` and `[=]`.
-This is important for readability, maintainability, and performance reasons, particularly 
-when used with large lambdas and deferred execution.
-It declares the intent of the author and so mistakes can be more easily be caught
-during code review. Incorrect captures can have negative consequences which are more likely to become a problem as the code is maintained over time.
-* By*reference capture and by*value capture pointers (including `this` pointer) can cause
-accidental dangling references, if execution of the lambda is deferred.
-* By*value capture can be a performance concern if it makes unnecessary copies for a non*deferred lambda.
-* Accidentally captured `UOject` pointers are invisible to the garbage collector. 
-Automatic capture captures `this` pointer implicitly if any member variables are referenced,
-even though `[=]` gives the impression of the lambda having its own copies of everything.
-Explicit Return types should be used for large lambdas, or when returning the result of 
-another function call.
-These should be considered in the same way as the `auto` keyword.
-Automatic captures and implicit return types are acceptable for trivial, non-deferred lambdas,
-such as in `Sort` calls, where the semantics are obvious and being explicit would make it 
-overly verbose.
-The capture initilize feature from C++ 14 may be used.
-Strongly Typed Enumerations
-Enum  should always be used as a replacement for old-style namespaced enums, both for regular `enum `and `UENUM`.
-These are also supported as UPROPERTYs and replace the old `TEnumAsByte&lt;>` workaround.
-However, enums exposed to BLueprints must continue to be based on `uint8`.
-Enum classes used as flags can take advantage of the `ENUM_CLASS_FLAGS(EnumType)` macro to
-automatically define all of the bitwise operators.
-The one exception to this is the use of flags in *truth* context - this is a limitation 
-of the language. Instead, all flag enums should have an enumerator called `None` which 
-is set to 0 for comparisons.
-
-Move Semantics
-All of the main contain types (`TArray`, `TMap`, `TSet`, `FString`) have move constructors and move assignment operators.
-These are often used automatically when passing/returning these types by value, but can be explicitly invoked using `MoveTemp`, which is UnrealEngine's equivilent of `std::move`.
-Returning containers of strings by value can be a win for expressivity, without the usual cost of temporary copies.
-Rules around pass-by-value and use of `MoveTemp` are still being established, but can already be found in some optimized areas of the codebase.
-
-Default Member Initializers
-Default member initializers can be used to define the defaults of a class inside the class
-itself.
-This has the following benefits:
-* It does not need to duplicate initializers accross multiple constructors.
-* It is not possible to mix the initialization order and declaration order.
-* The member type, property flags and default values are all in one place, which helps 
-readability and maintainability.
-Some of the downsides:
-* Any change to the defaults will require a rebuild of all dependent files
-* Headers can't change in patch releases engine, so this style can limit the kind of fixes
-that are possible. (Engine Dev specific)
-* Some things can not be initialized in this way, such as base classes, `UObject sub*objects`,
-pointers to forward*declared types, values deduced from constructor arguments, and members 
-initialized over multiple steps. TODO(mallchad) figure out what is meant by "steps"
-* Putting some initializers in the headers, and the rest in constructors in the .cpp file, 
-can reduce readability and maintainability
-Use your best judgement when deciding whether to use them.
-As a rule of thumb, default member initializers make more sense in game code than 
-engine code.
-Also consider using config files for default values.
-
-Third Party Code
-Whenever you modify the code to a library that we use in the engine be sure to tag your changes with a `//@UE4` comment, as well as an explanation of why you made the change.
-This makes merging the changes into a new version of that library easier, and lets 
-licensees easily find any modification we have made.
-Any third party code included int he engine should be marked with comments formatted to be easily searchable.
-
-Code Formatting
+Rule 1.9 | Code Formatting
 
 Brace wars are foul.
 Epic has a long standing usage pattern of putting braces on a new line.
@@ -356,31 +222,15 @@ All compilers used by Unreal Engine support the directive.
 In particular, avoid including standard library headers from other headers.
 * If you can use forward declarations instead of including a header, do so.
 * When including, be as fine grained as possible.
-For example, do not include `Core.h`, include the specific headers in the `Core.h` that you
-need definitions from.
 * Try to include every header you need directly, to make fine*grained inclusion easier.
 * Do not rely on a header that is included indirectly by another header you include.
  Don't rely on being included through another header, specify everything needed.
-* Modules have Private and Public source directories. Definitions needed by other modules 
-must be in the headers in the public directory.
-Everything else should be in the Private directory. 
-Note that in older Unreal modules, these directories may still be called "Src" and "Inc".
 Those directories are meant to separate private and public code in the same way and not 
 to separate header files from source
-* Don't worry about setting up your headers for pre*compiled header generation.
-The UnrealBuildTool is excellent at doing this job by itself.
-* Split up large functions into logical sub*functions.
 One area a compiler can optimize is the elimination of common sub*expressions.
 The bigger your functions are, the more work the compiler has to perform to 
 identify them.
 This inflates build times.
-* Don't abuse inline functions.
-They force rebuilds even in files which do not use them.
-Inline functions should only be used for trivial accessors and when profiling shows there 
-is a benefit to doing so.
-* Be even more conservative with hte use of `FORCEINLINE`.
-All code and local variables will be expanded out into the calling function, and will 
-cause the same problems with build times as large functions.
 
 Encapsulation
 Enforce encapsulation with the protection keywords.
@@ -414,8 +264,6 @@ resort.
 to coordinate with gcc.
 * Debug code should either be generally useful and polished, or not checked in.
 Debug code that is intermixed with other code makes the other code harder to read.
-* Always use the `TEXT()` macro around string literals.
-Otherwise code that constructors `FStrings` from literals will cause undefined behavior.
 * Avoid repeating the same operation redundantly in loops.
 Move common sub*expressions out of loops to avoid redundant calculations.
 Sometimes the use of static variables is OK to avoid redundant operations such as large 
