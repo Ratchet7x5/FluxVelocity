@@ -101,7 +101,7 @@ aim to be be self-explanatory in its execution.
 Note that more important fixes should be co-ordinates with project-management software and 
 other maintainers
 
-Rule 1.8 | Const Correctess
+Rule 1.7 | Const Correctess
 
 Const is documentation as much as it is a compiler directive, so all code should strive  
 to be const-correct to improve readability and performance.
@@ -120,7 +120,8 @@ compiler warnings for built-in types
 Note: This only applies to the type itself and not a dereferenced object  
 Note: Place the const keyword after the type rather than before the type it points to.  
 
-Rule 1.9 | Example Formatting
+Rule 1.8 | Example Formatting
+
 It's recommended to follow the type of code standards demonstrated below. 
 The `@param` style is the traditional multi-line style, but for simple functions  
 it can be clearer to integrate the paramater and return value documentation into  
