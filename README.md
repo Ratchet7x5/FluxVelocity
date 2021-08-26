@@ -179,40 +179,12 @@ Here are the standards for indenting your code:
 * Use white-space characters, never use tabs. 
 Tell you editor to input exactly 4 characters.
 
-Switch Stat ements
+Switch Statements
 Except for empty cases (multiple cases having identical code), switch case statements 
 should explicitly label that a case falls through to the next case, or include a 
 "falls-through" comment in each case.
 Other code control-transfer commands (return, continue, ect...) are fine as well.
 Always have a default case and include a break just in case someboy adds a new case after the default.
-
-Namespaces
-You can use namespaces to organize your classes, functions and variables where appropriate.
-If you do use them, follow the rules below:
-* Most Unreal Engine code is currently not wrapped in a global namespace.
-Be careful to avoid collisions in the global scope, especially when using or 
-including third party code.
-* Namespaces are not supported by UnrealHeaderTool, so they should not be used when 
-defining `UCLASS`s, `USCRUCT`s and so on.
-* New APIs which aren't `UCLASS`s and such should be placed in a `UE::` namespace at least.
-Ideally in a nested namespace like `UE::Audio`.
-Namespaces which are used to hold implimentation details which are not part of the public*facing API should go in a private namespace like `UE:Audio::Private`.
-* Using declarations - *Do not put `using` declarations int he global scope, even in a 
-.cpp file. It will cause problems with the "unity" build system.
-	*It is ok to put using declarations within another namespace, or within a function body.
-	*If you put using declarations within a namespace, this will carry over to other 
-	occurrences of that namespace in the smae translation unity. 
-	As long as you are consistent, this is fine.
-	*z You can only use using declarations in header files safely if you follow the above rules
-* Note that forward*declared types need to be declared within their respective namespace.
-Failing to do so will cause linker errors.
-* If you declare a very large amount of classes/types within a namespace, it can be 
-difficult to use those types in other global*scoped classes.
-For example, function signatures will need to use explicit namespace when appearing 
-in class definitions.
-* `using` declarations should only be used to alias specific variables within a namespace.
-This is not common in Unreal code.
-* Macros cannot live in a namespace, however it should be prefixed with `UE_`instead
 
 Physical Dependencies
 * File names should not be prefixed where possible.
