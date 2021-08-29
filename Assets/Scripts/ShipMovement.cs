@@ -41,6 +41,12 @@ public class ShipMovement : MonoBehaviour
         speed += speedGainPerSecond * Time.deltaTime;
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
+        if (Input.GetKey("space")) 
+        {
+            // Initiate Boost
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
+        }
+
         ShipFallOfTrack();
     }
 
