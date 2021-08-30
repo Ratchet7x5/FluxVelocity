@@ -22,7 +22,7 @@ public class ShipMovement : MonoBehaviour
     void Update()
     {
         /*
-        Read player's key script,
+        Read player's key
         */
         if (Input.GetKey("a")) 
         {
@@ -43,6 +43,25 @@ public class ShipMovement : MonoBehaviour
 
         ShipFallOfTrack();
     }
+
+    /*
+    Test New Movement script 1
+
+    Problem : Need to set circuit track to move properly
+    */
+    // private void FixedUpdate() {
+    //     float moveHorizontal = Input.GetAxis("Horizontal");
+    //     Vector3 movement = new Vector3(0.0f,0.0f,-moveHorizontal);
+    //     GetComponent<Rigidbody>().velocity = movement * speed;
+
+    //     /*
+    //     Ship moving forward script
+    //     */
+    //     speed += speedGainPerSecond * Time.deltaTime;
+    //     transform.Translate(Vector3.down * speed * Time.deltaTime);
+
+    //     ShipFallOfTrack();
+    // }
 
     /*
     If player ship fall of the track (current Y position < -10),
