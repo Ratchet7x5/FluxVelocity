@@ -37,12 +37,9 @@ public class ShipMovement : MonoBehaviour
             transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
         }
         
-        if (Input.GetKey("w"))
-        {
-            speed += speedGainPerSecond * Time.deltaTime;
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
-
-        }
+        //auto move
+        speed += speedGainPerSecond * Time.deltaTime;
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
 
         if (Input.GetKey("space") && gaugeCurrent.current > 0) 
         {
