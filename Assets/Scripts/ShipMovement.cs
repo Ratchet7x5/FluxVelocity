@@ -11,11 +11,13 @@ public class ShipMovement : MonoBehaviour
 
     [Tooltip("Ship turning speed")][SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")][SerializeField] private int steerValue = 2;
+    
+    public BoostGauge gaugeCurrent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gaugeCurrent.current = 0;
     }
 
     // Update is called once per frame
@@ -34,12 +36,16 @@ public class ShipMovement : MonoBehaviour
             // Move Right
             transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
         }
-
-        /*
-        Ship moving forward script
-        */
+        
+        //auto move
         speed += speedGainPerSecond * Time.deltaTime;
         transform.Translate(Vector3.down * speed * Time.deltaTime);
+
+        if (Input.GetKey("space") && gaugeCurrent.current > 0) 
+        {
+
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
+        }
 
         ShipFallOfTrack();
     }
