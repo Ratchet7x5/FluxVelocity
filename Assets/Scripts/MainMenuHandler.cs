@@ -5,17 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenu;
-    /*
-    Load the Tutorial Scene (index 1)
-    */
-    public void LoadTutorialScene()
-    {
-        SceneManager.LoadScene(1);
-    }
+    public AudioSource audioSource;
 
-    public void LoadSettingMenu()
+    /*
+    This mehtod make sure that the music (gameObject) will not be destroyed,
+    when the game SCENE changed
+    Note : In Unity Awake() invoked before Start()
+    */
+    private void Awake()
     {
-        mainMenu.SetActive(false);
+        DontDestroyOnLoad(gameObject);
     }
 }

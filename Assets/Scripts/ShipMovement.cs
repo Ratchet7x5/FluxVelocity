@@ -7,8 +7,8 @@ public class ShipMovement : MonoBehaviour
 {
     [Header("Ship Movement")]
     [Tooltip("Ship current Speed")][SerializeField] private float CurrentSpeed = 0f;
-    [Tooltip("Ship current Speed")][SerializeField] private float MaxSpeed = 10f;
-    [Tooltip("Speed increasing per second")][SerializeField] private float Acceleration = 0.2f;
+    [Tooltip("Ship current Speed")][SerializeField] private float MaxSpeed = 5f;
+    [Tooltip("Speed increasing per second")][SerializeField] private float Acceleration = 10f;
 
     [Tooltip("Ship turning speed")][SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")][SerializeField] private int steerValue = 2;
@@ -37,10 +37,10 @@ public class ShipMovement : MonoBehaviour
             // Move Right
             transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
         }
-
+        
         //auto move
         //todo(tarun): speed increases each frame, needs a cap
-        CurrentSpeed += (MaxSpeed >= 5) ? CurrentSpeed = MaxSpeed : Acceleration * Time.deltaTime;
+        CurrentSpeed = (CurrentSpeed >= MaxSpeed) ? (CurrentSpeed = MaxSpeed) : (Acceleration * Time.deltaTime);
         
         transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
 
