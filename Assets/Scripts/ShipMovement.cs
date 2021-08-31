@@ -7,8 +7,10 @@ public class ShipMovement : MonoBehaviour
 {
     [Header("Ship Movement")]
     [Tooltip("Ship current Speed")][SerializeField] private float CurrentSpeed = 0f;
-    [Tooltip("Ship current Speed")][SerializeField] private float MaxSpeed = 10f;
-    [Tooltip("Speed increasing per second")][SerializeField] private float Acceleration = 0.2f;
+    [Tooltip("Ship Max Speed")][SerializeField] private float MaxSpeed = 5f;
+    [Tooltip("Ship Boost Scaling")][SerializeField] private float BoostScale = 1.5f;
+    [Tooltip("Maximum Velocity when Boosting")][SerializeField] private float MaxBoostedSpeed = 0f;
+    [Tooltip("Speed gained per second")][SerializeField] private float Acceleration = 100f;
 
     [Tooltip("Ship turning speed")][SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")][SerializeField] private int steerValue = 2;
@@ -19,14 +21,16 @@ public class ShipMovement : MonoBehaviour
     void Start()
     {
         gaugeCurrent.current = 0;
+        MaxBoostedSpeed = BoostScale * MaxSpeed; 
     }
 
     // Update is called once per frame
     void Update()
     {
         /*
-        Read player's key script,
+        Read player's key script
         */
+        //Read 
         if (Input.GetKey("a")) 
         {
             // Move Left
@@ -37,16 +41,16 @@ public class ShipMovement : MonoBehaviour
             // Move Right
             transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
         }
-
+        
         //auto move
         //todo(tarun): speed increases each frame, needs a cap
-        CurrentSpeed += (MaxSpeed >= 5) ? CurrentSpeed = MaxSpeed : Acceleration * Time.deltaTime;
+        CurrentSpeed = (CurrentSpeed >= MaxSpeed) ? (CurrentSpeed = MaxSpeed) : (Acceleration * Time.deltaTime);
         
         transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
 
         if (Input.GetKey("space") && gaugeCurrent.current > 0) 
         {
-
+            //have a scalar of MaxSpeed that determines the max speed during boost
             transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
         }
 
