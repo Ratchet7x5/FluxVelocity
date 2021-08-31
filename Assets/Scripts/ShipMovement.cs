@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class ShipMovement : MonoBehaviour
 {
     [Header("Ship Movement")]
-    [Tooltip("Ship current Speed")][SerializeField] private float speed = 10f;
-    [Tooltip("Speed increasing per second")][SerializeField] private float speedGainPerSecond = 0.2f;
+    [Tooltip("Ship current Speed")][SerializeField] private float CurrentSpeed = 0f;
+    [Tooltip("Ship current Speed")][SerializeField] private float MaxSpeed = 10f;
+    [Tooltip("Speed increasing per second")][SerializeField] private float Acceleration = 0.2f;
 
     [Tooltip("Ship turning speed")][SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")][SerializeField] private int steerValue = 2;
@@ -36,15 +37,18 @@ public class ShipMovement : MonoBehaviour
             // Move Right
             transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
         }
-        
+
         //auto move
-        speed += speedGainPerSecond * Time.deltaTime;
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
+        //todo(tarun): speed increases each frame, needs a cap
+        CurrentSpeed += (MaxSpeed >= 5) ? CurrentSpeed = 0 : Acceleration * Time.deltaTime; ;
+
+        
+        transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
 
         if (Input.GetKey("space") && gaugeCurrent.current > 0) 
         {
 
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
         }
 
         ShipFallOfTrack();
