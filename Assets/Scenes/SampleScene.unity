@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximum: 500
-  current: 50
+  current: 78
   mask: {fileID: 1550185589}
 --- !u!1 &64210373
 GameObject:
@@ -678,7 +678,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.16245979, y: 0.688191, z: -0.16245972, w: 0.68819106}
+  m_LocalRotation: {x: 0.1624598, y: 0.68819106, z: -0.16245976, w: 0.688191}
   m_LocalPosition: {x: -14.240198, y: 4.5299997, z: -7.4799995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.1
+  m_FillAmount: 0.156
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1071,8 +1071,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b3e6e02ed874092b334a6f9aa1f9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  speedGainPerSecond: 0.2
+  CurrentSpeed: 0
+  MaxSpeed: 5
+  Acceleration: 100
   turnSpeed: 100
   steerValue: 2
   gaugeCurrent: {fileID: 12401523}
@@ -1172,7 +1173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794516054}
-  m_LocalRotation: {x: 0.16245979, y: 0.688191, z: -0.16245972, w: 0.68819106}
+  m_LocalRotation: {x: 0.1624598, y: 0.68819106, z: -0.16245976, w: 0.688191}
   m_LocalPosition: {x: -14.240198, y: 4.5299997, z: -7.4799995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
