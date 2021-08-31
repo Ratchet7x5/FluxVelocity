@@ -40,8 +40,7 @@ public class ShipMovement : MonoBehaviour
 
         //auto move
         //todo(tarun): speed increases each frame, needs a cap
-        CurrentSpeed += (MaxSpeed >= 5) ? CurrentSpeed = 0 : Acceleration * Time.deltaTime; ;
-
+        CurrentSpeed += (MaxSpeed >= 5) ? CurrentSpeed = MaxSpeed : Acceleration * Time.deltaTime;
         
         transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
 
