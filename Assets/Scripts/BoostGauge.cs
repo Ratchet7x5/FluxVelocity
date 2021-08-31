@@ -37,7 +37,7 @@ public class BoostGauge : MonoBehaviour
             }
         }
         
-        float fillAmount = (float)current / (float)maximum;
+        float fillAmount = (float)current / (float) maximum;
         mask.fillAmount = fillAmount;
         
         
