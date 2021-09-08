@@ -44,8 +44,7 @@ public class ShipMovement : MonoBehaviour
         }
         
         //AUTO move forward
-        //todo(tarun): speed increases each frame, needs a cap  
-        //TODO_DONE (Jackk_Doe)
+        //todo(tarun): speed increases each frame, needs a cap
         CurrentSpeed = (CurrentSpeed >= MaxSpeed) ? (CurrentSpeed = MaxSpeed) : (CurrentSpeed + Acceleration * Time.deltaTime);
         
         transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
