@@ -6,11 +6,6 @@ using UnityEngine;
 public class InGameUIDisplay : MonoBehaviour
 {
     [SerializeField] private TMP_Text speedText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
