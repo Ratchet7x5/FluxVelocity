@@ -15,8 +15,14 @@ public class SettingHandler : MonoBehaviour
         audioMixer.SetFloat("volume", volume);
     }
 
+    /*
+    Change game graph quality with GraphicDropDown in SettingMenu
+
+    Quality Options : Ultra Low, Low, Medium, High, Ultra High 
+    */
     public void SetGraphicQuality(int quialityIndex) 
     {
+        // Change game Graphic quality with given index number in DropDown
         QualitySettings.SetQualityLevel(quialityIndex);
 
         // Test printing current Quality Level
