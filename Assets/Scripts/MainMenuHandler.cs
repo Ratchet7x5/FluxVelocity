@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenu;
     /*
     Load the Tutorial Scene (index 1)
     */
@@ -14,8 +13,9 @@ public class MainMenuHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void LoadSettingMenu()
+    // Quit Game method
+    public void QuitGame() 
     {
-        mainMenu.SetActive(false);
+        Application.Quit();
     }
 }
