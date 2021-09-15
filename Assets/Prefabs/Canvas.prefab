@@ -26,15 +26,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133977740988202943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -351}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5158304862686673013}
-  m_RootOrder: 1
+  m_Father: {fileID: 5158304862862543314}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: 397}
+  m_AnchoredPosition: {x: 8.000061, y: 197.99997}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2888585249072088704
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 258
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -128,6 +127,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -142,12 +142,9 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
-  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -799,7 +796,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5158304861405788022}
-  - {fileID: 6126575853921091995}
   m_Father: {fileID: 5158304862862543314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -895,6 +891,7 @@ RectTransform:
   - {fileID: 5730377154520283782}
   - {fileID: 5158304862686673013}
   - {fileID: 3414304114610052160}
+  - {fileID: 6126575853921091995}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -915,7 +912,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -975,7 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b120391809c4dcab57ba3a78aa1be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedText: {fileID: 3484968400693393602}
+  textDisplay: {fileID: 0}
 --- !u!114 &5030099820032470140
 MonoBehaviour:
   m_ObjectHideFlags: 0
