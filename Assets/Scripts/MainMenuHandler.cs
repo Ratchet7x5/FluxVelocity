@@ -10,6 +10,11 @@ public class MainMenuHandler : MonoBehaviour
     */
     public void LoadTutorialScene()
     {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadPlayScene()
+    {
         SceneManager.LoadScene(1);
     }
 
