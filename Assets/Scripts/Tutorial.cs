@@ -48,7 +48,7 @@ public class Tutorial : MonoBehaviour
 
     private void airbreak()
     {
-        TextBox.text = "press shift to break... ";
+        TextBox.text = "Press shift to break... ";
         if (Input.GetKey(KeyCode.LeftShift))
         {
             TextBox.text = " ";
@@ -78,7 +78,7 @@ public class Tutorial : MonoBehaviour
         {
             Debug.Log("Player pressed Space...");
             holdspace = false;
-            TextBox.text = "YAY!! you know how to play now go to menu to exit Tutorial";
+            TextBox.text = "YAY!! you know how to play. Go to main menu to exit Tutorial";
         }
     }
 }
