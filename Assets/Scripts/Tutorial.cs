@@ -36,7 +36,7 @@ public class Tutorial : MonoBehaviour
     }
     private void MoveLeft()
     {
-        if (Input.GetKey("a") || Input.GetKey("A"))
+        if (Input.GetKey("a"))
         {
             TextBox.text = " ";
             Debug.Log("Player pressed A...");
@@ -62,7 +62,7 @@ public class Tutorial : MonoBehaviour
     private void MoveRight()
     {
         TextBox.text = "Press D to move right";
-        if (Input.GetKey("d") || Input.GetKey("D"))
+        if (Input.GetKey("d"))
         {
             TextBox.text = " ";
             Debug.Log("Player pressed D...");

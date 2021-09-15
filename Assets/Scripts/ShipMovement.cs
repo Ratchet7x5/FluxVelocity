@@ -7,6 +7,7 @@ public class ShipMovement : MonoBehaviour
 {
     [Header("Ship Movement")]
     // Set CurrentSpeed to static, so the variable can be accessed from other class (InGameUIDisplay)
+    [Tooltip("Ship initial Speed")][SerializeField] private float initialSpeed = 5f;
     [Tooltip("Ship current Speed")][SerializeField] public static float CurrentSpeed = 5f;
     [Tooltip("Ship Max Speed")][SerializeField] private float MaxSpeed = 10f;
     [Tooltip("Ship Braking Ratio")][SerializeField] private float brakingRatio = 0.8f;
@@ -22,6 +23,9 @@ public class ShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Reset the ship speed once start game
+        CurrentSpeed = initialSpeed;
+
         gaugeCurrent.current = 0;
         MaxBoostedSpeed = BoostScale * MaxSpeed; 
     }
