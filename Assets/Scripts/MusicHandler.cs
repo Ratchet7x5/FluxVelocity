@@ -13,7 +13,8 @@ public class MusicHandler : MonoBehaviour
     Note : In Unity Awake() invoked before Start()
 
     */
-    private void Awake() {
+    private void Awake() 
+    {
         DontDestroyOnLoad(gameObject);
     }
 
