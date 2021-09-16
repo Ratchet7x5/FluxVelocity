@@ -72,6 +72,13 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        // Find if the MusicPlayer existed
+        GameObject music = GameObject.Find("MusicPlayer");
+
+        // If the MusicPlayer existed, Destroy
+        if (music)
+            Destroy(music);
+
         Debug.Log("Quitting Game...");
         Application.Quit();
     }
