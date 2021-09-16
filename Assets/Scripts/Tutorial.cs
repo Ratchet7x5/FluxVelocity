@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+    // Showing text
     [SerializeField] public TMP_Text TextBox;
-    bool holda = true;
-    bool holdd = false;
-    bool holdspace = false;
-    bool holdbreak = false;
+
+    // Time delay between each tutorial
+    [Tooltip("Time delay between Tutorial")][SerializeField] private float delayTimes = 1.5f;
+
+    bool pressAavialable = true;
+    bool pressBavialable = false;
+    bool pressShiftavialable = false;
+    bool pressSpaceavialable = false;
+
     private void Start()
     {
         TextBox.text = "Press A to move left";
@@ -17,68 +23,97 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
-        if (holda == true)
+        if (pressAavialable == true)
         {
             MoveLeft();
         }
-        if (holdd == true)
+
+        if (pressBavialable == true)
         {
             MoveRight();
         }
-        if (holdbreak == true)
+
+        if (pressShiftavialable == true)
         {
             airbreak();
         }
-        if (holdspace == true)
+
+        if (pressSpaceavialable == true)
         {
             Boost();
         }
     }
+
     private void MoveLeft()
     {
-        if (Input.GetKey("a") || Input.GetKey("A"))
+        // If press 'a', show next tutorial
+        if (Input.GetKey("a"))
         {
             TextBox.text = " ";
-            Debug.Log("Player pressed A...");
-            holdd = true;
-            holda = false;
+            if (pressAavialable) {
+                Invoke(nameof(AlreadyPressedA), delayTimes);
+                pressAavialable = false;
+            }
         }
-        
-    }
-
-    private void airbreak()
-    {
-        TextBox.text = "press shift to break... ";
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            TextBox.text = " ";
-            Debug.Log("Player pressed shift...");
-            holdspace = true;
-            holdbreak = false;
-        }
-
     }
 
     private void MoveRight()
     {
-        TextBox.text = "Press D to move right";
-        if (Input.GetKey("d") || Input.GetKey("D"))
+        // If press 'd', show next tutorial
+        if (Input.GetKey("d"))
         {
             TextBox.text = " ";
-            Debug.Log("Player pressed D...");
-            holdd = false;
-            holdbreak = true;
+            if (pressBavialable) {
+                Invoke(nameof(AlreadyPressedD), delayTimes);
+                pressBavialable = false;
+            }
         }
+    }
+
+    private void airbreak()
+    {
+        // If press 'shift', show next tutorial
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            TextBox.text = " ";
+            if (pressShiftavialable) {
+                Invoke(nameof(AlreadyPressedShift), delayTimes);
+                pressShiftavialable = false;
+            }
+        }
+
     }
 
     private void Boost()
     {
-        TextBox.text = "Press space to boost";
+        // If press 'space', end tutorial
         if (Input.GetKey("space"))
         {
-            Debug.Log("Player pressed Space...");
-            holdspace = false;
-            TextBox.text = "YAY!! you know how to play now go to menu to exit Tutorial";
+            TextBox.text = " ";
+            if (pressSpaceavialable) {
+                Invoke(nameof(AlreadyPressedSpace), delayTimes);
+                pressSpaceavialable = false;
+            }
         }
     }
+
+    private void AlreadyPressedA() {
+        pressBavialable = true;
+        TextBox.text = "Press D to move right";
+    }
+
+    private void AlreadyPressedD() {
+        pressShiftavialable = true;
+        TextBox.text = "Press shift to break... ";
+    }
+
+    private void AlreadyPressedShift() {
+        pressSpaceavialable = true;
+        TextBox.text = "Press space to boost";
+    }
+
+    private void AlreadyPressedSpace() {
+        TextBox.text = "YAY!! you know how to play. Go to main menu to exit Tutorial";
+    }
+
 }

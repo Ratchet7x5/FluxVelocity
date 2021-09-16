@@ -14,20 +14,32 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (bIsGamePaused)
             {
-                Resume();
+                ResumeGame();
             }
             else
             {
-                Pause();
+                PauseGame();
             }
         }
     }
 
-    public void Resume()
+    public void ResumeAndPauseButton()
+    {
+        if (bIsGamePaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+    }
+
+    public void ResumeGame()
     {
         Debug.Log("Resuming Game...");
 
@@ -36,7 +48,7 @@ public class PauseMenu : MonoBehaviour
         bIsGamePaused = false;
     }
 
-    public void Pause()
+    public void PauseGame()
     {
         Debug.Log("Pausing Game...");
 
@@ -47,8 +59,14 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        GameObject music = GameObject.Find("MusicPlayer");
+        if (music)
+        {
+            Destroy(music);
+        }
+
         Debug.Log("Loading Main Menu...");
-        Resume();
+        ResumeGame();
         SceneManager.LoadScene("MainMenu");
     }
 
