@@ -54,15 +54,17 @@ public class ShipMovement : MonoBehaviour
         
         // Brake System
         // Press "Shift" to brake
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if (Input.GetKey(KeyCode.LeftShift) && CurrentSpeed > 0) {
+
             CurrentSpeed -= brakingRatio * Time.deltaTime;
+
         }
 
         // Moving forward
         transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
 
         // Boost speed
-        if (Input.GetKey("space") && gaugeCurrent.current > 0) 
+        if (Input.GetKey("space") && gaugeCurrent.current > 1) 
         {
             //have a scalar of MaxSpeed that determines the max speed during boost
             transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
