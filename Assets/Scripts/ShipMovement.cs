@@ -17,6 +17,11 @@ public class ShipMovement : MonoBehaviour
 
     [Tooltip("Ship turning speed")][SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")][SerializeField] private int steerValue = 2;
+
+    // Ship go forward sound
+    [SerializeField] AudioClip mainEngine;
+
+    AudioSource audioSource;
     
     public BoostGauge gaugeCurrent;
 
@@ -28,6 +33,8 @@ public class ShipMovement : MonoBehaviour
 
         gaugeCurrent.current = 0;
         MaxBoostedSpeed = BoostScale * MaxSpeed; 
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +65,15 @@ public class ShipMovement : MonoBehaviour
 
             CurrentSpeed -= brakingRatio * Time.deltaTime;
 
+            // If braking, stop sound effect (mainEngine)
+            audioSource.Stop();
+
+        }
+        else {
+            // If not braking plays sounds
+            if (!audioSource.isPlaying) {
+                audioSource.PlayOneShot(mainEngine);
+            }
         }
 
         // Moving forward
