@@ -14,13 +14,22 @@ public class InGameUIDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If Game is paused
+        if (PauseMenu.isGamePaused) {
+            textDisplay.text = "Pausing";
+        }
         // If Boosting
-        if (Input.GetKey("space")) {
+        else if (Input.GetKey("space")) {
             textDisplay.text = "Boosting";
         }
         // Else if braking
         else if (Input.GetKey(KeyCode.LeftShift)) {
-            textDisplay.text = "Braking   " + Mathf.FloorToInt(ShipMovement.CurrentSpeed).ToString();
+            if (ShipMovement.CurrentSpeed < 0) {
+                textDisplay.text = "Braking   " + 0;
+            }
+            else {
+                textDisplay.text = "Braking   " + Mathf.FloorToInt(ShipMovement.CurrentSpeed).ToString();
+            }
         }
         else {
             // Display ship's current speed

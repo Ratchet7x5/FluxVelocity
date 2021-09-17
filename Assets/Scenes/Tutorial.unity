@@ -516,8 +516,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -982,7 +982,19 @@ PrefabInstance:
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: mainEngine
       value: 
-      objectReference: {fileID: 8300000, guid: 525d2affff03f4bdf9f031133fc00a50, type: 3}
+      objectReference: {fileID: 8300000, guid: 31a43d43e861f456b99216deab6c7179, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: runningEngineSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 31a43d43e861f456b99216deab6c7179, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: brakingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f80505d3dc02f4114b74155d1e44c141, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: boostingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ec8b6271a0fb420ca8fb5a28e779910, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
 --- !u!1 &779369036

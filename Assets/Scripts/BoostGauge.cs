@@ -20,7 +20,10 @@ public class BoostGauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetCurrentFill();
+        // Only trigger GetCurrentFill() when game is not paused
+        if (!PauseMenu.isGamePaused) {
+            GetCurrentFill();
+        }
     }
 
     void GetCurrentFill()
