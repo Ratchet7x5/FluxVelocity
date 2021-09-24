@@ -19,9 +19,10 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Steer value")] [SerializeField] private int steerValue = 2;
 
     // Sound Effects
-    [SerializeField] AudioClip runningEngineSound;
-    [SerializeField] AudioClip brakingSound;    // If press "shift" (brakes)
-    [SerializeField] AudioClip boostingSound;   // If press "space" (boost)
+    /* FRAGILE, DON'T TOUCH CODES THAT DEALT WITH SOUND EFFECT */
+    [SerializeField] AudioClip runningEngineSound = null;
+    [SerializeField] AudioClip brakingSound = null;    // If press "shift" (brakes)
+    [SerializeField] AudioClip boostingSound = null;   // If press "space" (boost)
 
     // Audio control
     public static AudioSource audioSource;

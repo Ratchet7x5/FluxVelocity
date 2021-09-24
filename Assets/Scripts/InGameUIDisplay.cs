@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InGameUIDisplay : MonoBehaviour
 {
-    [SerializeField] private TMP_Text textDisplay;
+    [SerializeField] private TMP_Text textDisplay = null;
 
     private void Start() {
         textDisplay.text = "0";
