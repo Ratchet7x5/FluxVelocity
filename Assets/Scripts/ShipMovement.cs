@@ -53,12 +53,12 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKey("a"))
         {
             // Move Left
-            transform.Rotate(0f, 0f, -steerValue * turnSpeed * Time.deltaTime);
+            transform.Rotate(0f, -steerValue * turnSpeed * Time.deltaTime, 0f);
         }
         else if (Input.GetKey("d"))
         {
             // Move Right
-            transform.Rotate(0f, 0f, steerValue * turnSpeed * Time.deltaTime);
+            transform.Rotate(0f, steerValue * turnSpeed * Time.deltaTime, 0f);
         }
 
         //AUTO move forward
@@ -122,13 +122,13 @@ public class ShipMovement : MonoBehaviour
         }
 
         /* Moving forward control*/
-        transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * CurrentSpeed * Time.deltaTime);
 
         /* Boost speed */
         if (Input.GetKey("space") && gaugeCurrent.current > 1)
         {
             //have a scalar of MaxSpeed that determines the max speed during boost
-            transform.Translate(Vector3.down * CurrentSpeed * Time.deltaTime);
+            transform.Translate(Vector3.forward * CurrentSpeed * Time.deltaTime);
 
             // If braking, stop runningEngineSound sound (if playing),
             // and play boostingSound
