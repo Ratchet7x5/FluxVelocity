@@ -207,7 +207,6 @@ MonoBehaviour:
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
-    m_FaceIndex: 0
     m_FamilyName: Liberation Sans
     m_StyleName: 
     m_PointSize: 86
@@ -4760,7 +4759,7 @@ MonoBehaviour:
   m_AtlasWidth: 1024
   m_AtlasHeight: 1024
   m_AtlasPadding: 9
-  m_AtlasRenderMode: 32806
+  m_AtlasRenderMode: 32810
   m_glyphInfoList:
   - id: 32
     x: 10
