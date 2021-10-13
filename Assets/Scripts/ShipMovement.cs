@@ -17,7 +17,9 @@ public class ShipMovement : MonoBehaviour
 
     [Tooltip("Ship turning speed")] [SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")] [SerializeField] private int steerValue = 2;
-
+    //shunt
+    [Tooltip("second before reset")] [SerializeField] private float rest = 0.5f;
+    [Tooltip("count tap of keybored")] [SerializeField] private int tapcount = 0;
     // Sound Effects
     /* FRAGILE, DON'T TOUCH CODES THAT DEALT WITH SOUND EFFECT */
     [SerializeField] AudioClip runningEngineSound = null;
@@ -111,7 +113,7 @@ public class ShipMovement : MonoBehaviour
                     audioSource.Stop();
                     audioSource.clip = runningEngineSound;
                     audioSource.Play();
-                } 
+                }
                 // If the current is runningEngine, but not playing,
                 // replay
                 else if (audioSource.clip == runningEngineSound && !audioSource.isPlaying) {
@@ -146,7 +148,57 @@ public class ShipMovement : MonoBehaviour
             }
         }
 
+        shunt();
         ShipFallOfTrack();
+    }
+
+    private void shunt()
+    {   //shunting ship left
+        if (Input.GetKeyDown("q"))
+        {   //checking for double tap
+            if (rest > 0 && tapcount == 1)
+            {
+                //shunting ship
+                if (Input.GetKey("q"))
+                {
+                    transform.Translate(Vector3.left * CurrentSpeed * Time.deltaTime * 10);
+                }
+            }
+            else
+            {
+                rest = 0.5f;
+                tapcount += 1;
+            }
+        }
+        if (Input.GetKeyDown("e"))
+        {   //checking for double tap
+            if (rest > 0 && tapcount == 1)
+            {
+                //shunting ship
+                if (Input.GetKey("e"))
+                {
+                    transform.Translate(Vector3.right * CurrentSpeed * Time.deltaTime * 10);
+                }
+            }
+            else
+            {
+                rest = 0.5f;
+                tapcount += 1;
+            }
+        }
+        //shunting ship phone tap
+        /*
+        if (Input.touchCount <= 0)
+        {
+            return;
+        }
+        for(touch in Input.touches) 
+        {
+            if (touch.tapCount == 2) 
+            {
+              transform.Translate(Vector3.left * CurrentSpeed * Time.deltaTime * 10);
+            }    
+        }   */
     }
 
     /*

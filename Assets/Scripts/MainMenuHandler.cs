@@ -8,6 +8,11 @@ public class MainMenuHandler : MonoBehaviour
     /*
     Load the Tutorial Scene (index 1)
     */
+    public void LoadMultiplayerScene()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void LoadTutorialScene()
     {
         SceneManager.LoadScene(2);
