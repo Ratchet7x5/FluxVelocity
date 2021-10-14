@@ -8,7 +8,7 @@ public class MainMenuHandler : MonoBehaviour
     /*
     Load the Tutorial Scene (index 1)
     */
-    public void LoadMultiplayerScene()
+    public void Load8BitScene()
     {
         SceneManager.LoadScene(3);
     }
