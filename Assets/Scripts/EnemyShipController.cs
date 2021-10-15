@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyShipController : MonoBehaviour
 {
     [SerializeField] private float initialSpeed = 5f;
+    // Make currentSpeed SerializeField, just to see in Run time mode in Editor
+    [SerializeField] private float currentSpeed = 0;
     [SerializeField] private float acceleration = 0.2f;
     [SerializeField] private float maxSpeed = 20f;
     [SerializeField] private GameObject getWayPointPath;
@@ -19,7 +21,6 @@ public class EnemyShipController : MonoBehaviour
     // Use to track current index in wayPoints List
     private int wayPointIndex;
 
-    private float currentSpeed = 0;
     private int steerValue = 1;
 
     // Start is called before the first frame update
@@ -81,8 +82,8 @@ public class EnemyShipController : MonoBehaviour
         // Debug.Log(headingPosition);
         // Debug.Log(angleToDirection);
 
-        ForwardMoving(forwardSpeed);
         LeftRightMoving(turnAmount);
+        ForwardMoving(forwardSpeed);
 
         ShipFallOfTrack();
     }
@@ -99,6 +100,7 @@ public class EnemyShipController : MonoBehaviour
 
     // Update (mark) new heading WayPoint
     private void UpdateNewHeadingWayPoint() {
+        // If the heading way point is FINAL way point (last index)
         if (wayPointIndex == wayPoints.Count - 1) {
             wayPointIndex = -1;
         }
