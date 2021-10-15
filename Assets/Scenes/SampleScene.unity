@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -112,6 +112,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &117814346
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1082815596}
+    m_Modifications:
+    - target: {fileID: 100000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_Name
+      value: Start banner
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15131716
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.020064786
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.012387239
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.008141469
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.008141472
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.008141472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 431884cf3236c854db123341c63bce47, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1b224a452d17d24a97cf11bfc0391ee, type: 3}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,10 +261,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5158304862862543318, guid: 224822e1846ec414eb89e5fe8bb59e57,
+    - target: {fileID: 2019307798629852710, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
-      propertyPath: m_Name
-      value: Canvas
+      propertyPath: textDisplay
+      value: 
+      objectReference: {fileID: 1761075151}
+    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -64.57732
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793810134333166702, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeAndPauseButton
       objectReference: {fileID: 0}
     - target: {fileID: 5158304862862543314, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
@@ -298,36 +391,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
+    - target: {fileID: 5158304862862543318, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_margin.w
-      value: -64.57732
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7006086976694432403, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
       objectReference: {fileID: 0}
-    - target: {fileID: 3793810134333166702, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeAndPauseButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019307798629852710, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: textDisplay
-      value: 
-      objectReference: {fileID: 1761075151}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224822e1846ec414eb89e5fe8bb59e57, type: 3}
 --- !u!114 &199538118 stripped
@@ -445,10 +518,54 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1583416186, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: m_Volume
+      value: 0.125
+      objectReference: {fileID: 0}
     - target: {fileID: 1763094913, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: m_Name
       value: Ship_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: gaugeCurrent
+      value: 
+      objectReference: {fileID: 199538118}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: MaxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: brakingRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: Acceleration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: 525d2affff03f4bdf9f031133fc00a50, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: runningEngineSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 31a43d43e861f456b99216deab6c7179, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: brakingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f80505d3dc02f4114b74155d1e44c141, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: boostingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ec8b6271a0fb420ca8fb5a28e779910, type: 3}
+    - target: {fileID: 1763094915, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763094916, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 268760575a43ec24f9b78c6e6a34a71c, type: 2}
     - target: {fileID: 1763094918, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.751
@@ -492,50 +609,6 @@ PrefabInstance:
     - target: {fileID: 1763094918, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: gaugeCurrent
-      value: 
-      objectReference: {fileID: 199538118}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: MaxSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: brakingRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: Acceleration
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: mainEngine
-      value: 
-      objectReference: {fileID: 8300000, guid: 525d2affff03f4bdf9f031133fc00a50, type: 3}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: runningEngineSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 31a43d43e861f456b99216deab6c7179, type: 3}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: brakingSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f80505d3dc02f4114b74155d1e44c141, type: 3}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: boostingSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 7ec8b6271a0fb420ca8fb5a28e779910, type: 3}
-    - target: {fileID: 1763094916, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 268760575a43ec24f9b78c6e6a34a71c, type: 2}
-    - target: {fileID: 1763094915, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1583416186, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: m_Volume
-      value: 0.125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
@@ -652,13 +725,9 @@ MonoBehaviour:
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Cinemachine, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &883055250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1153,8 +1222,6 @@ MonoBehaviour:
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 904698903}
 --- !u!4 &1794516056
@@ -1239,6 +1306,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 167.10742
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 6d25a7df85741c64088719335684756c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d1ad62f5227884a40ad474cb8fd1a3ef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d25a7df85741c64088719335684756c, type: 3}
 --- !u!1 &2052370475
