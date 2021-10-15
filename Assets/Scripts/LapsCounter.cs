@@ -5,7 +5,8 @@ using UnityEngine;
 public class LapsCounter : MonoBehaviour
 {
     // This variable value indicate how many labs need to finish Game
-    [SerializeField] private int lapCount = 2;
+    // Get from RaceController Gameobject RaceControl.cs
+    private int lapCounter;
 
     // Track Player laps count
     private int playerCount;
@@ -17,6 +18,7 @@ public class LapsCounter : MonoBehaviour
     private Dictionary<GameObject, int> dictionary;
 
     private void Start() {
+        lapCounter = GameObject.Find("RaceController").GetComponent<RaceControl>().GetLapCount();
         playerCount = 0;
         enemiesAICount = new int[3];
         dictionary = new Dictionary<GameObject, int>();
@@ -34,7 +36,7 @@ public class LapsCounter : MonoBehaviour
         
         if (other.CompareTag("Player")) {
             playerCount++;
-            if (playerCount >= lapCount + 1) {
+            if (playerCount >= lapCounter + 1) {
                 /* Player WIN the race */
                 // Debug.Log("Player WIN");
                 /* Call Method from RaceController Objects script */
@@ -48,7 +50,7 @@ public class LapsCounter : MonoBehaviour
             // Uncheck When need to debug
             // Debug.Log(other.gameObject.name + " lap(s) : "+dictionary[other.gameObject]);
             
-            if (dictionary[other.gameObject] >= lapCount + 1) {
+            if (dictionary[other.gameObject] >= lapCounter + 1) {
                 /* Player LOST the race */
                 // Debug.Log("Player LOST");
                 /* Call Method from RaceController Objects script */

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ba3a542452e47088cbe80b175aa0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lapCount: 3
 --- !u!1 &925825385768616694
 GameObject:
   m_ObjectHideFlags: 0

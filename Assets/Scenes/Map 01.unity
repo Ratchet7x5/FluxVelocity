@@ -418,31 +418,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2019307798629852710, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: textDisplay
-      value: 
-      objectReference: {fileID: 1761075151}
-    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_margin.w
-      value: -64.57732
-      objectReference: {fileID: 0}
-    - target: {fileID: 3793810134333166702, guid: 224822e1846ec414eb89e5fe8bb59e57,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeAndPauseButton
-      objectReference: {fileID: 0}
     - target: {fileID: 5158304862862543314, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -553,11 +528,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7006086976694432403, guid: 224822e1846ec414eb89e5fe8bb59e57,
+    - target: {fileID: 8245647705583715890, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 762393482}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224822e1846ec414eb89e5fe8bb59e57, type: 3}
 --- !u!114 &199538118 stripped
@@ -1486,6 +1461,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700371848}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &762393482 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6757518970137824625, guid: 6a23c38e1b0c442b8a17691f2a8956f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6757518969993179195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92fe9406c6ca40ca8070330a44bb59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &862063282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2897,18 +2884,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710884625}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1761075151 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3484968400693393602, guid: 224822e1846ec414eb89e5fe8bb59e57,
-    type: 3}
-  m_PrefabInstance: {fileID: 199538117}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1763094918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8342316087265904241, guid: f4cda43a42b504f81b10fa7cb8bffcc0,
@@ -3821,6 +3796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757518970137824625, guid: 6a23c38e1b0c442b8a17691f2a8956f1,
+        type: 3}
+      propertyPath: lapCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6757518970137824626, guid: 6a23c38e1b0c442b8a17691f2a8956f1,
         type: 3}

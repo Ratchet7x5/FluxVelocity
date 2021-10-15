@@ -1329,6 +1329,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
       objectReference: {fileID: 0}
+    - target: {fileID: 8245647705583715890, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 341162353}
+    - target: {fileID: 8245647705583715890, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224822e1846ec414eb89e5fe8bb59e57, type: 3}
 --- !u!114 &199538118 stripped
@@ -1787,6 +1797,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6757518970137824625, guid: 6a23c38e1b0c442b8a17691f2a8956f1,
+        type: 3}
+      propertyPath: lapCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6757518970137824626, guid: 6a23c38e1b0c442b8a17691f2a8956f1,
         type: 3}
       propertyPath: m_Name
@@ -1794,6 +1809,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a23c38e1b0c442b8a17691f2a8956f1, type: 3}
+--- !u!114 &341162353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6757518970137824625, guid: 6a23c38e1b0c442b8a17691f2a8956f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 341162352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92fe9406c6ca40ca8070330a44bb59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394844133
 GameObject:
   m_ObjectHideFlags: 0
