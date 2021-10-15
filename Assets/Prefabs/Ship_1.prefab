@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1583416186}
   m_Layer: 0
   m_Name: Ship_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   MaxBoostedSpeed: 0
   turnSpeed: 100
   steerValue: 2
+  rest: 0.5
+  tapcount: 0
   runningEngineSound: {fileID: 8300000, guid: 31a43d43e861f456b99216deab6c7179, type: 3}
   brakingSound: {fileID: 8300000, guid: f80505d3dc02f4114b74155d1e44c141, type: 3}
   boostingSound: {fileID: 8300000, guid: 7ec8b6271a0fb420ca8fb5a28e779910, type: 3}
