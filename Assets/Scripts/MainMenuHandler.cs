@@ -5,22 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
-    /*
-    Load the Tutorial Scene (index 1)
-    */
-    public void Load8BitScene()
+    // Load Map 01 scene Scene (index 1)
+    public void LoadMap01()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 
-    public void LoadTutorialScene()
+    // Load Map 02 scene Scene (index 2)
+    public void LoadMap02()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void LoadPlayScene()
+    // Load Tutorial Scene (index 3)
+    public void LoadTutorialScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     // Quit Game method
