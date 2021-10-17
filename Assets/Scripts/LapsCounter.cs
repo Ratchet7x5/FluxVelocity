@@ -14,6 +14,7 @@ public class LapsCounter : MonoBehaviour
     // Track Enemy AI lap count
     private int[] enemiesAICount;
 
+    // Decorator Pattern
     // Use Dictionary Collection to link Enemy AI with it's laps count variable
     private Dictionary<GameObject, int> dictionary;
 
@@ -23,7 +24,7 @@ public class LapsCounter : MonoBehaviour
         enemiesAICount = new int[3];
         dictionary = new Dictionary<GameObject, int>();
 
-        // Find & Initialliase Enemy labs count
+        // Assign each Enemy AI in scene to it's own Laps count
         for (int i = 0; i < 3; i++) {
             string name = "Enemy Ship 0"+i;
             GameObject enemy = GameObject.Find(name);

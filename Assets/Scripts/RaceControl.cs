@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class RaceControl : MonoBehaviour
 {
     // This variable value indicate how many labs need to finish Game
-    // Use in LapsCounter.cs
+    // Used in LapsCounter.cs
     [SerializeField] private int lapCount = 2;
 
     public int GetLapCount() {
