@@ -148,11 +148,11 @@ public class ShipMovement : MonoBehaviour
             }
         }
 
-        shunt();
+        Shunt();
         ShipFallOfTrack();
     }
 
-    private void shunt()
+    private void Shunt()
     {   //shunting ship left
         if (Input.GetKeyDown("q"))
         {   //checking for double tap
