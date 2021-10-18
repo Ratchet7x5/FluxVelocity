@@ -40,7 +40,7 @@ public class RaceControl : MonoBehaviour
     }
 
     private void GameOverHelper() {
-        GameEnd("GAME OVER");
+        GameEnd("PLAYER WIN");
     }
 
     private void GameEnd(string gameEndText) {
