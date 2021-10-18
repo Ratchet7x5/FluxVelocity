@@ -58,11 +58,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        GameObject music = GameObject.Find("MusicPlayer");
-        if (music)
-        {
-            Destroy(music);
-        }
+        DestroySigletonObject();
 
         Debug.Log("Loading Main Menu...");
         ResumeGame();
@@ -71,6 +67,14 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        DestroySigletonObject();
+
+        Debug.Log("Quitting Game...");
+        Application.Quit();
+    }
+
+    private void DestroySigletonObject() {
+
         // Find if the MusicPlayer existed
         GameObject music = GameObject.Find("MusicPlayer");
 
@@ -83,7 +87,5 @@ public class PauseMenu : MonoBehaviour
         if (playerSkin)
             Destroy(playerSkin);
 
-        Debug.Log("Quitting Game...");
-        Application.Quit();
     }
 }
