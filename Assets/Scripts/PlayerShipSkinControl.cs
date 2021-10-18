@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerShipSkinControl : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerShipSkinControl : MonoBehaviour
     public Texture skin01;
     public Texture skin02;
     public Texture skin03;
+
+    // Change inform text
+    public TMP_Text text;
     
     private void Awake() {
 
@@ -22,18 +26,28 @@ public class PlayerShipSkinControl : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Attached to Skin01Button
-    public void Skin1Picked() {
-        playerShipCurrentSkin.mainTexture = skin01;
+    // Attached to Skin01Button, Skin02Button & Skin03Button
+    // Using returned index to choose Ship Skin
+    public void PickSkin(int index) {
+        if (index == 1)
+            playerShipCurrentSkin.mainTexture = skin01;
+        else if (index == 2)
+            playerShipCurrentSkin.mainTexture = skin02;
+        else
+            playerShipCurrentSkin.mainTexture = skin03;
+
+        ShowText();
     }
 
-    // Attached to Skin02Button
-    public void Skin2Picked() {
-        playerShipCurrentSkin.mainTexture = skin02;
+    // Show inform text when changed skin,
+    // Then remove text in given time (second)
+    private void ShowText() {
+        text.text = "Skin Changed";
+        Invoke(nameof(RemoveText), 1.5f);
     }
 
-    // Attached to Skin03Button
-    public void Skin3Picked() {
-        playerShipCurrentSkin.mainTexture = skin03;
+    // Remove text
+    private void RemoveText() {
+        text.text = "";
     }
 }
