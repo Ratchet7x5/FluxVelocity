@@ -134,7 +134,7 @@ public class Tutorial : MonoBehaviour
 
     private void AlreadyPressedW() {
         TextBox.text = "YAY!! you know how to play. Go to main menu to exit Tutorial";
-        GlobalAchievements.ach02Check = 1;        
+        GlobalAchievements.ach02Check = 1;      
     }
 
 }

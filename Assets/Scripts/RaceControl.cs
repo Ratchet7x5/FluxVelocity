@@ -25,10 +25,12 @@ public class RaceControl : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1 && GlobalAchievements.ach03Check != 1)
         {
             GlobalAchievements.ach03Check = 1;
+            Rewards02.rewardCheck = 1;
         }
         if (SceneManager.GetActiveScene().buildIndex == 2 && GlobalAchievements.ach04Check != 1)
         {
             GlobalAchievements.ach04Check = 1;
+            Rewards03.rewardCheck = 1;
         }
     }
 

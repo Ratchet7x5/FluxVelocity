@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class GlobalAchievements : MonoBehaviour
 {
-
-    //General Variables
+    // General Variables
     public GameObject achNote;
     public AudioSource achSound;
     public GameObject achTitle;
@@ -14,22 +13,22 @@ public class GlobalAchievements : MonoBehaviour
     public bool achActive = false;
     public static int achReset;
     
-    //Achivement 01 Specific
+    // Achivement 01 Specific
     public static int ach01Check;
     public int ach01Trigger = 10;
     public int ach01Code = 0;
 
-    //Achivement 02 Specific
+    // Achivement 02 Specific
     public static int ach02Check;
     public int ach02Trigger = 1;
     public int ach02Code = 0;
 
-    //Achivement 03 Specific
+    // Achivement 03 Specific
     public static int ach03Check;
     public int ach03Trigger = 1;
     public int ach03Code = 0;
 
-    //Achivement 04 Specific
+    // Achivement 04 Specific
     public static int ach04Check;
     public int ach04Trigger = 1;
     public int ach04Code = 0;
@@ -37,11 +36,14 @@ public class GlobalAchievements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Resets Achievements Earned Upon Starting Game
         if(achReset == 0)
         {
             PlayerPrefs.DeleteAll();
             achReset = 12345;
         }
+
+        // When an achievement is triggered the achievement's corresponding function will run
         ach01Code = PlayerPrefs.GetInt("Ach01");
         if (ach01Check == ach01Trigger && ach01Code != 12345)
         {
@@ -64,6 +66,7 @@ public class GlobalAchievements : MonoBehaviour
         }
     }
 
+    // Displays appropriate information for the achievement earned - Sets the achievement code so player can only earn achievement once
     IEnumerator Trigger01Ach()
     {
         achActive = true;
