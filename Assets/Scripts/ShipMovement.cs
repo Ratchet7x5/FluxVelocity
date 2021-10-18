@@ -238,7 +238,9 @@ public class ShipMovement : MonoBehaviour
     // Read Player Skin picked
     private void GetPlayerShipSkin() {
         GameObject playerSkin = GameObject.Find("PlayerShipSkin");
-        GetComponent<Renderer>().material = playerSkin.GetComponent<PlayerShipSkinControl>().playerShipCurrentSkin;
+        if (playerSkin) 
+            GetComponent<Renderer>().material = playerSkin.GetComponent<PlayerShipSkinControl>().playerShipCurrentSkin;
+        
     }
 
     // Reset Player Skin & Destroy PlayerShipSkin Gameobject

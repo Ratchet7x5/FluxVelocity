@@ -16,12 +16,20 @@ public class RaceControl : MonoBehaviour
     
     // If Player WIN
     public void GameWin() {
+        Invoke(nameof(GameWinHelper), 0.7f);
+    }
+
+    private void GameWinHelper() {
         GameEnd("PLAYER WIN");
     }
 
     // If Player LOST
     public void GameOver() {
-        GameEnd("GAME OVER");
+        Invoke(nameof(GameOverHelper), 0.7f);
+    }
+
+    private void GameOverHelper() {
+        GameEnd("PLAYER WIN");
     }
 
     private void GameEnd(string gameEndText) {

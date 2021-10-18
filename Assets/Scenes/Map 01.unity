@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: getWayPointPath
       value: 
       objectReference: {fileID: 244473902}
+    - target: {fileID: 1416156577, guid: a307c7b1ffbfe40e0ad1a33bff5e7258, type: 3}
+      propertyPath: acceleration
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6328706560805182449, guid: a307c7b1ffbfe40e0ad1a33bff5e7258,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2888,7 +2892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 5
   currentSpeed: 0
-  acceleration: 0.2
+  acceleration: 0.4
   maxSpeed: 20
   getWayPointPath: {fileID: 244473902}
 --- !u!1 &1534721112
@@ -3607,7 +3611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 5
   currentSpeed: 0
-  acceleration: 0.2
+  acceleration: 0.4
   maxSpeed: 20
   getWayPointPath: {fileID: 244473902}
 --- !u!1 &1911428540
@@ -4193,11 +4197,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082815596}
     m_Modifications:
-    - target: {fileID: 925825383850538791, guid: 2fd1b9e6b62a74215a0f39b7da6926fa,
-        type: 3}
-      propertyPath: lapCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 925825385768197846, guid: 2fd1b9e6b62a74215a0f39b7da6926fa,
         type: 3}
       propertyPath: m_LocalPosition.x
