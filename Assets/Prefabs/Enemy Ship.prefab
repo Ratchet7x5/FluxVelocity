@@ -123,6 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 5
   currentSpeed: 0
-  acceleration: 0.2
+  acceleration: 0.4
   maxSpeed: 20
   getWayPointPath: {fileID: 0}

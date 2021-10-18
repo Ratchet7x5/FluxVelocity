@@ -8,5 +8,6 @@ public class Ach01Trigger : MonoBehaviour
     void Update()
     {
       GlobalAchievements.ach01Check = Mathf.FloorToInt(ShipMovement.CurrentSpeed);
+      Rewards01.rewardCheck = Mathf.FloorToInt(ShipMovement.CurrentSpeed);
     }
 }
