@@ -78,6 +78,11 @@ public class PauseMenu : MonoBehaviour
         if (music)
             Destroy(music);
 
+        // Reset Player Skin & Destroy PlayerShipSkin Gameobject
+        GameObject playerSkin = GameObject.Find("PlayerShipSkin");
+        if (playerSkin)
+            Destroy(playerSkin);
+
         Debug.Log("Quitting Game...");
         Application.Quit();
     }

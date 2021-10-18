@@ -34,6 +34,10 @@ public class ShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set Player Ship skin to the variable <code>playerShipCurrentSkin<code> in
+        // PlayerShipSkin GameObject
+        GetPlayerShipSkin();
+
         // Reset the ship speed once start game
         CurrentSpeed = initialSpeed;
 
@@ -223,8 +227,25 @@ public class ShipMovement : MonoBehaviour
             if (music)
                 Destroy(music);
 
+            // Reset Player Ship Skin
+            ResetPlayerShipSkinChoice();
+
             // Load MainMenuScene
             SceneManager.LoadScene(0);
         }
+    }
+
+    // Read Player Skin picked
+    private void GetPlayerShipSkin() {
+        GameObject playerSkin = GameObject.Find("PlayerShipSkin");
+        GetComponent<Renderer>().material = playerSkin.GetComponent<PlayerShipSkinControl>().playerShipCurrentSkin;
+    }
+
+    // Reset Player Skin & Destroy PlayerShipSkin Gameobject
+    private void ResetPlayerShipSkinChoice() {
+        GameObject playerSkin = GameObject.Find("PlayerShipSkin");
+        if (playerSkin)
+            Destroy(playerSkin);
+            
     }
 }
