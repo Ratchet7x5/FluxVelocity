@@ -18,6 +18,11 @@ public class LapsCounter : MonoBehaviour
     // Use Dictionary Collection to link Enemy AI with it's laps count variable
     private Dictionary<GameObject, int> dictionary;
 
+    // Simple Particle effect when Player Win
+    [SerializeField] private ParticleSystem playerWinParticle;
+
+    private AudioSource playerWinSound;
+
     private void Start() {
         lapCounter = GameObject.Find("RaceController").GetComponent<RaceControl>().GetLapCount();
         playerCount = 0;
@@ -31,6 +36,8 @@ public class LapsCounter : MonoBehaviour
             enemiesAICount[i] = 0;
             dictionary.Add(enemy,enemiesAICount[i]);
         }
+
+        playerWinSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -39,6 +46,13 @@ public class LapsCounter : MonoBehaviour
             playerCount++;
             if (playerCount >= lapCounter + 1) {
                 /* Player WIN the race */
+
+                // Play the assigned sound effect
+                playerWinSound.Play();
+                
+                // Play the assigned particle effect
+                playerWinParticle.Play();
+
                 // Debug.Log("Player WIN");
                 /* Call Method from RaceController Objects script */
                 GameObject.Find("RaceController").GetComponent<RaceControl>().GameWin();
