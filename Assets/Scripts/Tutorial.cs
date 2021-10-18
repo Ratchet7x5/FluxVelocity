@@ -90,7 +90,7 @@ public class Tutorial : MonoBehaviour
     private void airbreakRight()
     {
         // If press 'space', show next tutorial
-        if (Input.GetKey(KeyCode.space))
+        if (Input.GetKey(" "))
         {
             TextBox.text = " ";
             if (pressSpaceavialable) {
