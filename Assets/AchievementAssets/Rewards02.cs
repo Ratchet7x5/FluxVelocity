@@ -28,6 +28,6 @@ public class Rewards02 : MonoBehaviour
         rewardCode = 12345;
         PlayerPrefs.SetInt("Reward02", rewardCode);
         rewardNote.SetActive(true);
-        return null;
+        yield return new WaitForSeconds(1);
     }
 }
