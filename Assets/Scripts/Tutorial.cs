@@ -114,6 +114,7 @@ public class Tutorial : MonoBehaviour
 
     private void AlreadyPressedSpace() {
         TextBox.text = "YAY!! you know how to play. Go to main menu to exit Tutorial";
+        GlobalAchievements.ach02Check = 1;        
     }
 
 }
