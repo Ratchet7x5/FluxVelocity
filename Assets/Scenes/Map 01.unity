@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 252058916}
   - component: {fileID: 252058917}
   m_Layer: 0
-  m_Name: Achieve01
+  m_Name: AchieveTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1945,8 +1945,14 @@ MonoBehaviour:
   achTitle: {fileID: 1914885493}
   achDesc: {fileID: 1901630334}
   achActive: 0
-  ach01Trigger: 8
+  ach01Trigger: 10
   ach01Code: 0
+  ach02Trigger: 1
+  ach02Code: 0
+  ach03Trigger: 1
+  ach03Code: 0
+  ach04Trigger: 1
+  ach04Code: 0
 --- !u!1 &959491650
 GameObject:
   m_ObjectHideFlags: 0

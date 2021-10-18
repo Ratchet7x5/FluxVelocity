@@ -21,6 +21,15 @@ public class RaceControl : MonoBehaviour
 
     private void GameWinHelper() {
         GameEnd("PLAYER WIN");
+        
+        if (SceneManager.GetActiveScene().buildIndex == 1 && GlobalAchievements.ach03Check != 1)
+        {
+            GlobalAchievements.ach03Check = 1;
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 2 && GlobalAchievements.ach04Check != 1)
+        {
+            GlobalAchievements.ach04Check = 1;
+        }
     }
 
     // If Player LOST
