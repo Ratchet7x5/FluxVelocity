@@ -11,7 +11,7 @@ public class WayPointPathHandler : MonoBehaviour
 
     // Similar with Update(), but works only in Editor,
     // called when scene view updated
-    private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         
         // Set color
         Gizmos.color = drawColor;
