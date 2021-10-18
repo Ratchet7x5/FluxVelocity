@@ -123,13 +123,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 5
-  MaxSpeed: 20
-  Acceleration: 0.3
-  brakingRatio: 1
+  MaxSpeed: 10
+  Acceleration: 1
+  brakingRatio: 0.5
   BoostScale: 1.5
   MaxBoostedSpeed: 0
-  turnSpeed: 100
+  turnSpeed: 25
   steerValue: 2
+  presstimeL: 0
+  presstimeR: 0
+  doublepressL: 0
+  doublepressR: 0
   rest: 0.5
   tapcount: 0
   runningEngineSound: {fileID: 8300000, guid: 31a43d43e861f456b99216deab6c7179, type: 3}
