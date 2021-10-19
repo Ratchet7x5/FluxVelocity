@@ -286,6 +286,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeAndPauseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5158304862686673013, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158304862686673013, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -281.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158304862686673013, guid: 224822e1846ec414eb89e5fe8bb59e57,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -203
+      objectReference: {fileID: 0}
     - target: {fileID: 5158304862862543314, guid: 224822e1846ec414eb89e5fe8bb59e57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,15 +547,15 @@ PrefabInstance:
       objectReference: {fileID: 199538118}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: MaxSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: brakingRatio
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: Acceleration
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: mainEngine
@@ -558,10 +573,6 @@ PrefabInstance:
       propertyPath: boostingSound
       value: 
       objectReference: {fileID: 8300000, guid: 7ec8b6271a0fb420ca8fb5a28e779910, type: 3}
-    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
-      propertyPath: turnSpeed
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 1763094915, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: m_Enabled
       value: 1

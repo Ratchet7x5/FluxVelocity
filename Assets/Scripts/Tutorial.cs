@@ -12,9 +12,18 @@ public class Tutorial : MonoBehaviour
     [Tooltip("Time delay between Tutorial")][SerializeField] private float delayTimes = 1.5f;
 
     bool pressAavialable = true;
-    bool pressBavialable = false;
+    bool pressDavialable = false;
     bool pressShiftavialable = false;
     bool pressSpaceavialable = false;
+    bool pressAShuntavialable = false;
+    bool pressDShuntavialable = false;
+    bool pressWavialable = false;
+    public float presstimeL = 0.0f;
+    public float presstimeR = 0.0f;
+    public bool doublepressL = false;
+    public bool doublepressR = false;
+    [Tooltip("second before reset")] [SerializeField] private float rest = 0.5f;
+    [Tooltip("count tap of keybored")] [SerializeField] private int tapcount = 0;
 
     private void Start()
     {
@@ -28,17 +37,28 @@ public class Tutorial : MonoBehaviour
             MoveLeft();
         }
 
-        if (pressBavialable == true)
+        if (pressDavialable == true)
         {
             MoveRight();
         }
 
         if (pressShiftavialable == true)
         {
-            airbreak();
+            airbreakLeft();
         }
-
         if (pressSpaceavialable == true)
+        {
+            airbreakRight();
+        }
+        if (pressAShuntavialable == true)
+        {
+            ShuntLeft();
+        }
+        if (pressDShuntavialable == true)
+        {
+            ShuntRight();
+        }
+        if (pressWavialable == true)
         {
             Boost();
         }
@@ -63,14 +83,14 @@ public class Tutorial : MonoBehaviour
         if (Input.GetKey("d"))
         {
             TextBox.text = " ";
-            if (pressBavialable) {
+            if (pressDavialable) {
                 Invoke(nameof(AlreadyPressedD), delayTimes);
-                pressBavialable = false;
+                pressDavialable = false;
             }
         }
     }
 
-    private void airbreak()
+    private void airbreakLeft()
     {
         // If press 'shift', show next tutorial
         if (Input.GetKey(KeyCode.LeftShift))
@@ -81,13 +101,11 @@ public class Tutorial : MonoBehaviour
                 pressShiftavialable = false;
             }
         }
-
     }
-
-    private void Boost()
+    private void airbreakRight()
     {
-        // If press 'space', end tutorial
-        if (Input.GetKey("space"))
+        // If press 'space', show next tutorial
+        if (Input.GetKey(" "))
         {
             TextBox.text = " ";
             if (pressSpaceavialable) {
@@ -97,23 +115,91 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+     private void ShuntLeft()
+    {
+        // If double tap 'a', show next tutorial
+        if (Input.GetKey("a")&& !doublepressL)
+        {
+            doublepressL = true;
+            presstimeL = Time.time;
+        }
+        if (Input.GetKey("a")&& doublepressL)
+        {
+            TextBox.text = " ";
+            if (pressShiftavialable) {
+                Invoke(nameof(AlreadyPressedShift), delayTimes);
+                pressShiftavialable = false;
+            }
+        }
+            
+    }
+    private void ShuntRight()
+    {
+        // If double tap 'd', show next tutorial
+        if(Input.GetKeyUp("d") && !doublepressR){
+            doublepressR = true;
+            presstimeR = Time.time;
+        }
+        if (Input.GetKey("d") && doublepressR)
+        {
+            if (Input.GetKey("d"))
+            {
+                TextBox.text = " ";
+                if (pressSpaceavialable) 
+                {
+                Invoke(nameof(AlreadyPressedSpace), delayTimes);
+                pressSpaceavialable = false;
+                }
+            }
+        }
+    }
+
+    private void Boost()
+    {
+        // If press 'w', end tutorial
+        if (Input.GetKey("w"))
+        {
+            TextBox.text = " ";
+            if (pressWavialable) {
+                Invoke(nameof(AlreadyPressedW), delayTimes);
+                pressWavialable = false;
+            }
+        }
+    }
+
     private void AlreadyPressedA() {
-        pressBavialable = true;
+        pressDavialable = true;
         TextBox.text = "Press D to move right";
     }
 
     private void AlreadyPressedD() {
         pressShiftavialable = true;
-        TextBox.text = "Press shift to break... ";
+        TextBox.text = "Press shift to airbreak lect ";
     }
 
     private void AlreadyPressedShift() {
         pressSpaceavialable = true;
-        TextBox.text = "Press space to boost";
+        TextBox.text = "Press Space to airbreak right";
+    }
+     private void AlreadyPressedSpace() {
+        pressAShuntavialable = true;
+        TextBox.text = "double tap A to shunt left";
     }
 
-    private void AlreadyPressedSpace() {
+    private void AlreadyPressedShuntA() {
+        pressDShuntavialable = true;
+        TextBox.text = "double tap D to shunt left";
+    }
+
+    private void AlreadyPressedShuntD() {
+        pressWavialable = true;
+        TextBox.text = "Press w to Boost";
+    }
+
+
+    private void AlreadyPressedW() {
         TextBox.text = "YAY!! you know how to play. Go to main menu to exit Tutorial";
+        GlobalAchievements.ach02Check = 1;        
     }
 
 }
