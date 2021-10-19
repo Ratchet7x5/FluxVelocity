@@ -19,7 +19,7 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Steer value")] [SerializeField] private int steerValue = 2;
     //shunt
     [Tooltip("second before reset")] [SerializeField] private float rest = 0.5f;
-    [Tooltip("count tap of keybored")] [SerializeField] private int tapcount = 0;
+    [Tooltip("count tap of keyboard")] [SerializeField] private int tapcount = 0;
     // Sound Effects
     /* FRAGILE, DON'T TOUCH CODES THAT DEALT WITH SOUND EFFECT */
     [SerializeField] AudioClip runningEngineSound = null;
@@ -77,16 +77,8 @@ public class ShipMovement : MonoBehaviour
 
         If braked, stop runningEngineSound sound effect
         */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        if (Input.GetKey(KeyCode.LeftShift) && CurrentSpeed > 0)
-        {
->>>>>>> parent of 830afd5 (Updated new keyis)
-=======
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space)) && CurrentSpeed > 0)
         {
->>>>>>> parent of 84e2f7b (Merge branch 'Dev_Damo' into master)
 
             CurrentSpeed -= brakingRatio * Time.deltaTime;
 
