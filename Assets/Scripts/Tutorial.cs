@@ -105,7 +105,7 @@ public class Tutorial : MonoBehaviour
     private void airbreakRight()
     {
         // If press 'space', show next tutorial
-        if (Input.GetKey(" "))
+        if (Input.GetKey("space"))
         {
             TextBox.text = " ";
             if (pressSpaceavialable) {
@@ -120,14 +120,17 @@ public class Tutorial : MonoBehaviour
         // If double tap 'a', show next tutorial
         if (Input.GetKey("a")&& !doublepressL)
         {
-            doublepressL = true;
             presstimeL = Time.time;
+            if((Time.time - presstimeL) < 0.1f)
+            {
+                doublepressL = true;
+            } 
         }
         if (Input.GetKey("a")&& doublepressL)
         {
             TextBox.text = " ";
             if (pressShiftavialable) {
-                Invoke(nameof(AlreadyPressedShift), delayTimes);
+                Invoke(nameof(AlreadyPressedShuntA), delayTimes);
                 pressShiftavialable = false;
             }
         }
@@ -137,18 +140,21 @@ public class Tutorial : MonoBehaviour
     {
         // If double tap 'd', show next tutorial
         if(Input.GetKeyUp("d") && !doublepressR){
-            doublepressR = true;
             presstimeR = Time.time;
+            if((Time.time - presstimeR) < 0.1f)
+            {
+                doublepressR = true;
+            }
         }
         if (Input.GetKey("d") && doublepressR)
         {
             if (Input.GetKey("d"))
             {
                 TextBox.text = " ";
-                if (pressSpaceavialable) 
+                if (pressDShuntavialable) 
                 {
-                Invoke(nameof(AlreadyPressedSpace), delayTimes);
-                pressSpaceavialable = false;
+                Invoke(nameof(AlreadyPressedShuntD), delayTimes);
+                pressDShuntavialable = false;
                 }
             }
         }
