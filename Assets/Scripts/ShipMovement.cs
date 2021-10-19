@@ -77,7 +77,7 @@ public class ShipMovement : MonoBehaviour
 
         If braked, stop runningEngineSound sound effect
         */
-        if (Input.GetKey(KeyCode.LeftShift) && CurrentSpeed > 0)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space)) && CurrentSpeed > 0)
         {
 
             CurrentSpeed -= brakingRatio * Time.deltaTime;
@@ -108,7 +108,7 @@ public class ShipMovement : MonoBehaviour
         else
         {
             // If not pressing "shift" (brake) and "space" (boost)
-            if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey("space"))
+            if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey("w"))
             {
                 // If the current playing is not runningEngine,
                 // stop the current, then play runningEngine
@@ -131,7 +131,7 @@ public class ShipMovement : MonoBehaviour
         transform.Translate(Vector3.forward * CurrentSpeed * Time.deltaTime);
 
         /* Boost speed */
-        if (Input.GetKey("space") && gaugeCurrent.current > 1)
+        if (Input.GetKey("w") && gaugeCurrent.current > 1)
         {
             //have a scalar of MaxSpeed that determines the max speed during boost
             transform.Translate(Vector3.forward * CurrentSpeed * Time.deltaTime);
