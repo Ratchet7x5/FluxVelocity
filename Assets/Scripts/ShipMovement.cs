@@ -17,6 +17,11 @@ public class ShipMovement : MonoBehaviour
 
     [Tooltip("Ship turning speed")] [SerializeField] private float turnSpeed = 100f;
     [Tooltip("Steer value")] [SerializeField] private int steerValue = 2;
+
+    public float presstimeL = 0.0f;
+    public float presstimeR = 0.0f;
+    public bool doublepressL = false;
+    public bool doublepressR = false;
     //shunt
     [Tooltip("second before reset")] [SerializeField] private float rest = 0.5f;
     [Tooltip("count tap of keybored")] [SerializeField] private int tapcount = 0;
@@ -74,27 +79,42 @@ public class ShipMovement : MonoBehaviour
         /*
         Brake System
         Press "Shift" to brake
+
         If braked, stop runningEngineSound sound effect
         */
-if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space)) && CurrentSpeed > 0)
-        {
+        // if (Input.GetKey(KeyCode.LeftShift) && CurrentSpeed > 0)
+        // {
+
+        //     CurrentSpeed -= brakingRatio * Time.deltaTime;
+
+        //     // If braking, stop runningEngineSound sound (if playing),
+        //     // and play brakingSound
+        //     if (audioSource.clip != brakingSound && audioSource.isPlaying)
+        //     {
+        //         audioSource.Stop();
+        //         audioSource.clip = brakingSound;
+        //         audioSource.Play();
+        //     }
+
+        //     // If the current is brakingSound, but not playing,
+        //     // replay
+        //     if (audioSource.clip == brakingSound && !audioSource.isPlaying) {
+        //         audioSource.Play();
+        //     }
+        // }
+
+        //If shift or space is pressed, apply airbrake to respective side of ship 
+        if(Input.GetKey(KeyCode.LeftShift) && CurrentSpeed > 0){
             CurrentSpeed -= brakingRatio * Time.deltaTime;
-
-            // If braking, stop runningEngineSound sound (if playing),
-            // and play brakingSound
-            if (audioSource.clip != brakingSound && audioSource.isPlaying)
-            {
-                audioSource.Stop();
-                audioSource.clip = brakingSound;
-                audioSource.Play();
-            }
-
-            // If the current is brakingSound, but not playing,
-            // replay
-            if (audioSource.clip == brakingSound && !audioSource.isPlaying) {
-                audioSource.Play();
-            }
+            transform.Translate((Vector3.right * CurrentSpeed * Time.deltaTime)/3);
+            transform.Rotate(0f, -steerValue * turnSpeed * 2 * Time.deltaTime, 0f);
         }
+
+        if(Input.GetKey("space") && CurrentSpeed > 0){
+            CurrentSpeed -= brakingRatio * Time.deltaTime;
+            transform.Translate((Vector3.left * CurrentSpeed * Time.deltaTime)/3);
+            transform.Rotate(0f, steerValue * turnSpeed * 2 * Time.deltaTime, 0f);
+        }   
 
         // If paused, stop sound effect
         if (PauseMenu.isGamePaused)
@@ -129,7 +149,7 @@ if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space)) && CurrentS
         transform.Translate(Vector3.forward * CurrentSpeed * Time.deltaTime);
 
         /* Boost speed */
-        if (Input.GetKey("space") && gaugeCurrent.current > 1)
+        if (Input.GetKey("w") && gaugeCurrent.current > 1)
         {
             //have a scalar of MaxSpeed that determines the max speed during boost
             transform.Translate(Vector3.forward * CurrentSpeed * Time.deltaTime);
@@ -155,39 +175,35 @@ if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space)) && CurrentS
     }
 
     private void Shunt()
-    {   //shunting ship left
-        if (Input.GetKeyDown("q"))
-        {   //checking for double tap
-            if (rest > 0 && tapcount == 1)
-            {
-                //shunting ship
-                if (Input.GetKey("q"))
-                {
-                    transform.Translate(Vector3.left * CurrentSpeed * Time.deltaTime * 10);
-                }
+    {   
+        //shunting shup left
+        if(Input.GetKeyDown("a") && doublepressL){
+            if((Time.time - presstimeL) < 0.1f){
+                transform.Translate(Vector3.left * CurrentSpeed * Time.deltaTime * 10);
+                presstimeL = 0;
             }
-            else
-            {
-                rest = 0.5f;
-                tapcount += 1;
-            }
+            doublepressL = false;
         }
-        if (Input.GetKeyDown("e"))
-        {   //checking for double tap
-            if (rest > 0 && tapcount == 1)
-            {
-                //shunting ship
-                if (Input.GetKey("e"))
-                {
-                    transform.Translate(Vector3.right * CurrentSpeed * Time.deltaTime * 10);
-                }
-            }
-            else
-            {
-                rest = 0.5f;
-                tapcount += 1;
-            }
+            
+        if(Input.GetKeyUp("a") && !doublepressL){
+            doublepressL = true;
+            presstimeL = Time.time;
         }
+            
+        //shunting ship right
+        if(Input.GetKeyDown("d") && doublepressR){
+            if((Time.time - presstimeR) < 0.1f){
+                transform.Translate(Vector3.right * CurrentSpeed * Time.deltaTime * 10);
+                presstimeR = 0;
+            }
+            doublepressR = false;
+        }
+            
+        if(Input.GetKeyUp("d") && !doublepressR){
+            doublepressR = true;
+            presstimeR = Time.time;
+        }
+
         //shunting ship phone tap
         /*
         if (Input.touchCount <= 0)
