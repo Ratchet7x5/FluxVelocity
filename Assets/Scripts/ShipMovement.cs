@@ -178,7 +178,7 @@ public class ShipMovement : MonoBehaviour
         //shunting shup left
         if(Input.GetKeyDown("a") && doublepressL){
             if((Time.time - presstimeL) < 0.1f){
-                transform.Translate(Vector3.left * CurrentSpeed * Time.deltaTime * 10);
+                transform.Translate(Vector3.left * CurrentSpeed * Time.deltaTime * 5);
                 presstimeL = 0;
             }
             doublepressL = false;
@@ -192,7 +192,7 @@ public class ShipMovement : MonoBehaviour
         //shunting ship right
         if(Input.GetKeyDown("d") && doublepressR){
             if((Time.time - presstimeR) < 0.1f){
-                transform.Translate(Vector3.right * CurrentSpeed * Time.deltaTime * 10);
+                transform.Translate(Vector3.right * CurrentSpeed * Time.deltaTime * 5);
                 presstimeR = 0;
             }
             doublepressR = false;
