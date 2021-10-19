@@ -30,11 +30,11 @@ public class InGameUIDisplay : MonoBehaviour
             textDisplay.text = "Pausing";
         }
         // If Boosting
-        else if (Input.GetKey("space")) {
+        else if (Input.GetKey("w")) {
             textDisplay.text = "Boosting";
         }
         // Else if braking
-        else if (Input.GetKey(KeyCode.LeftShift)) {
+        else if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space)) {
             if (ShipMovement.CurrentSpeed < 0) {
                 textDisplay.text = "Braking   " + 0;
             }
