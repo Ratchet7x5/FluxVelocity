@@ -28,7 +28,7 @@ public class BoostGauge : MonoBehaviour
 
     void GetCurrentFill()
     {
-        if (Input.GetKey("w") && current > 0) 
+        if (Input.GetKey("space") && current > 0) 
         {
             current = current - 2;
         }
