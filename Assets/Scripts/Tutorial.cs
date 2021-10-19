@@ -129,9 +129,10 @@ public class Tutorial : MonoBehaviour
         if (Input.GetKey("a")&& doublepressL)
         {
             TextBox.text = " ";
-            if (pressShiftavialable) {
+            if (pressAShuntavialable) 
+            {
                 Invoke(nameof(AlreadyPressedShuntA), delayTimes);
-                pressShiftavialable = false;
+                pressAShuntavialable = false;
             }
         }
             
@@ -139,7 +140,8 @@ public class Tutorial : MonoBehaviour
     private void ShuntRight()
     {
         // If double tap 'd', show next tutorial
-        if(Input.GetKeyUp("d") && !doublepressR){
+        if(Input.GetKeyUp("d") && !doublepressR)
+        {
             presstimeR = Time.time;
             if((Time.time - presstimeR) < 0.1f)
             {
