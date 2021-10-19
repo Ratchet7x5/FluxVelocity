@@ -93,7 +93,8 @@ public class ShipMovement : MonoBehaviour
 
             // If the current is brakingSound, but not playing,
             // replay
-            if (audioSource.clip == brakingSound && !audioSource.isPlaying) {
+            if (audioSource.clip == brakingSound && !audioSource.isPlaying) 
+            {
                 audioSource.Play();
             }
         }
