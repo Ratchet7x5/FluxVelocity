@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.28717792, g: 0.33586565, b: 0.5218966, a: 1}
+  m_IndirectSpecularColor: {r: 0.28711563, g: 0.3358623, b: 0.5218703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1085,6 +1085,18 @@ PrefabInstance:
       propertyPath: gaugeCurrent
       value: 
       objectReference: {fileID: 878375516}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: MaxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: Acceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: turnSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1763094918, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.240197
@@ -1547,6 +1559,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextBox: {fileID: 362376574}
   delayTimes: 1.5
+  presstimeL: 0
+  presstimeR: 0
+  doublepressL: 0
+  doublepressR: 0
+  rest: 0.5
+  tapcount: 0
 --- !u!224 &1453216551 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5158304862862543314, guid: 224822e1846ec414eb89e5fe8bb59e57,

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.28717792, g: 0.33586565, b: 0.5218966, a: 1}
+  m_IndirectSpecularColor: {r: 0.28711563, g: 0.3358623, b: 0.5218703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1576,7 +1576,7 @@ PrefabInstance:
       objectReference: {fileID: 199538118}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: MaxSpeed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: brakingRatio
@@ -1584,7 +1584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: Acceleration
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: mainEngine
@@ -1602,6 +1602,10 @@ PrefabInstance:
       propertyPath: boostingSound
       value: 
       objectReference: {fileID: 8300000, guid: 7ec8b6271a0fb420ca8fb5a28e779910, type: 3}
+    - target: {fileID: 1763094914, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
+      propertyPath: turnSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1763094915, guid: 645ea88d206444037b1c1777b835faaf, type: 3}
       propertyPath: m_Enabled
       value: 1
