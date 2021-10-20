@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.28717792, g: 0.33586565, b: 0.5218966, a: 1}
+  m_IndirectSpecularColor: {r: 0.28711563, g: 0.3358623, b: 0.5218703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4076,6 +4076,21 @@ PrefabInstance:
       propertyPath: gaugeCurrent
       value: 
       objectReference: {fileID: 199538118}
+    - target: {fileID: 8342316087265904245, guid: f4cda43a42b504f81b10fa7cb8bffcc0,
+        type: 3}
+      propertyPath: MaxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342316087265904245, guid: f4cda43a42b504f81b10fa7cb8bffcc0,
+        type: 3}
+      propertyPath: Acceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342316087265904245, guid: f4cda43a42b504f81b10fa7cb8bffcc0,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8342316088691939403, guid: f4cda43a42b504f81b10fa7cb8bffcc0,
         type: 3}
       propertyPath: m_LocalPosition.x
