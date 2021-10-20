@@ -40,8 +40,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("Resuming Game...");
-
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
@@ -49,8 +47,6 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("Pausing Game...");
-
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isGamePaused = true;
@@ -59,8 +55,6 @@ public class PauseMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         DestroySigletonObject();
-
-        Debug.Log("Loading Main Menu...");
         ResumeGame();
         SceneManager.LoadScene("MainMenu");
     }
@@ -68,8 +62,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         DestroySigletonObject();
-
-        Debug.Log("Quitting Game...");
         Application.Quit();
     }
 
